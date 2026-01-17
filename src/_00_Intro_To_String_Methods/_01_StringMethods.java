@@ -89,7 +89,7 @@ public class _01_StringMethods {
 
     // Call Utilities.encrypt at the bottom of this file to encrypt String s
     public static String encrypt(String s, char key) {
-        return null;
+        return Utilities.encrypt(s.getBytes(), (byte)key);
     }
 
     // Call Utilities.decrypt at the bottom of this file to decrypt the
@@ -131,8 +131,19 @@ public class _01_StringMethods {
     			str += s.charAt(i);
     		}
     	}
+    	str = str.toLowerCase();
+    	int first = 0;
+    	int last = str.length()-1;
     	
-    	
+    	while(first <= last) {
+    		if (str.charAt(first) == str.charAt(last)) {
+    			first ++;
+    			last --;
+    		}
+    		else {
+    			return false;
+    		}
+    	}
         return true;
     }
 }
